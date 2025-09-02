@@ -1,11 +1,12 @@
-if SERVER then
-    AddCSLuaFile()
-end
+if SERVER then AddCSLuaFile() end
 
-SWEP.PrintName = "Pew Gun"
-SWEP.Author = "You + Friend"
-SWEP.Instructions = "Left click to pew"
+SWEP.PrintName = "Debug Gun"
+SWEP.Author = "Chaos Crew"
+SWEP.Instructions = "Left click for LOL"
+SWEP.Category = "My Cool Weapons"
+
 SWEP.Spawnable = true
+SWEP.Base = "weapon_base"
 
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
@@ -15,19 +16,7 @@ SWEP.Primary.Ammo = "none"
 function SWEP:PrimaryAttack()
     if SERVER then
         local ply = self:GetOwner()
-        local tr = ply:GetEyeTrace()
-
-        -- create fire effect
-        local effect = EffectData()
-        effect:SetOrigin(tr.HitPos)
-        util.Effect("FireImpact", effect)
-
-        -- actually ignite entity
-        if IsValid(tr.Entity) then
-            tr.Entity:Ignite(5, 0) -- 5 seconds
-        end
-
-        ply:EmitSound("ambient/fire/mtov_flame2.wav")
-        self:SetNextPrimaryFire(CurTime() + 0.1)
+        ply:ChatPrint("You fired the Debug Gun!")
+        ply:EmitSound("ambient/alarms/klaxon1.wav")
     end
 end
