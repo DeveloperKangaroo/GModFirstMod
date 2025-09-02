@@ -10,6 +10,7 @@ SWEP.Spawnable = true
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
 SWEP.Primary.Automatic = true
+SWEP.Primary.Ammo = "none"
 
 function SWEP:PrimaryAttack()
     if SERVER then
