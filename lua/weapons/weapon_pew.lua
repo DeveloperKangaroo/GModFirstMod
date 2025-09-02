@@ -1,13 +1,15 @@
-if SERVER then AddCSLuaFile() end
+if SERVER then
+    AddCSLuaFile()
+end
 
-SWEP.PrintName = "Flamethrower"
-SWEP.Author = "Chaos Crew"
+SWEP.PrintName = "Pew Gun"
+SWEP.Author = "You + Friend"
+SWEP.Instructions = "Left click to pew"
 SWEP.Spawnable = true
 
-SWEP.Primary.Automatic = true
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
-SWEP.Primary.Ammo = "none"
+SWEP.Primary.Automatic = true
 
 function SWEP:PrimaryAttack()
     if SERVER then
